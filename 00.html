@@ -1,0 +1,70 @@
+<x-layout>
+    <h2>Available</h2>
+
+    @if ($greeting == "hello")
+        <p>Kibongatsho toujours</p>
+    @endif
+
+    <ul>
+        @foreach ($targets as $target)
+            <li>
+                {{-- <p>{{ $target['name'] }}</p>
+                <a href="/targets/{{ $target['id'] }}">
+                    View details
+                </a>  --}}
+                <x-card href="/targets/{{ $target['id'] }}" highlight="true">
+                    <h3>
+                        {{ {{ $target['name'] }} }}
+                    </h3>
+                </x-card>
+            </li>
+        @endforeach
+
+        {{-- <li> <a href="{{ $targets[1]["id"] }}">
+            {{ $targets[1]["name"] }}
+            </a> 
+        </li> --}}
+</x-layout>
+
+{{-- <x-layout> --}}
+<div class="card">
+    {{ $slot }}
+    {{-- <a href="{{ $attributes->get('href') }}" class="btn">More details</a> --}}
+    <a {{ $attributes->get('href') }} class="btn">more details</a>
+</div>
+
+{{-- </x-layout> --}}
+
+<!--  -->
+php artisan make:model X -mfs
+php artisan make:controller 
+php artisan make:migration X
+php artisan migrate
+<!-- drop all database and start afresh -->php artisan migrate:fresh --seed
+-mfs : migration, factory, seeder
+php artisan key:generate
+
+<!-- using php tinker on terminal -->
+ PS C:\Users\mtjos\Herd\targetweb> php artisan tinker
+Psy Shell v0.12.24 (PHP 8.5.9 — cli) by Justin Hileman
+New PHP manual is available (latest: 3.1.1). Update with `doc --update-manual`
+> 5+10                                                                                                                                               
+
+= 15
+
+> use App\Models\Target                                                                                                                              
+
+> Target::create(['name' => 'EJ', 'skill' => '79', 'bio' => 'alright'])                                                                              
+
+= App\Models\Target {#7910
+    name: "EJ",
+    skill: "79",
+    bio: "alright",
+    updated_at: "2026-08-13 08:42:05",
+    created_at: "2026-08-13 08:42:05",
+    id: 1,
+  }
+
+  <!-- Target::All() = to get all -->
+     
+<!-- create random factory stuff -->  Target::factory()->count(25)->create()  
