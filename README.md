@@ -1,2 +1,2 @@
-# taregtweb
+# targetweb
 my first laravel site
