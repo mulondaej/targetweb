@@ -5,6 +5,7 @@
     <title>Home | Targets</title>
 
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
     @if (session('success'))
@@ -35,6 +36,8 @@
                 <span class="">
                     Hello, <a href="">{{ Auth::user()->name }}</a>
                 </span>
+
+                <a href=""></a>
            
                 <form action="{{ route('logout') }}" method="POST" class="m-8">
                     @csrf

@@ -49,7 +49,6 @@ class AuthController extends Controller
         throw ValidationException::withMessages([
             'credentials' => 'Sorry, invalid credentials!'
         ]);
-
     }
 
     public function logout(Request $request)
