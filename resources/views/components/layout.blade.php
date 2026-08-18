@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Targets</title>
+    <title>Home | Agents</title>
 
     @vite('resources/css/app.css')
 </head>
@@ -15,12 +15,12 @@
 
     <header>
         <nav>
-            <h1><a href="/">TargetWeb</a></h1>
+            <h1><a href="/">AgentsWeb</a></h1>
 
             <div>
-                <a href="{{ route('targets.index') }}">All Targets</a> | 
+                <a href="{{ route('agents.index') }}">All agents</a> | 
                 @auth
-                    <a href="{{ route('targets.create') }}">Create Target</a>       
+                    <a href="{{ route('agents.create') }}">Create Agent</a>       
                 @endauth
             </div>
             

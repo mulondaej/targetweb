@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Target;
+use App\Models\Agent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Branch;
 
 /**
- * @extends Factory<Target>
+ * @extends Factory<Agent>
  */
-class TargetFactory extends Factory
+class AgentFactory extends Factory
 {
     /**
      * Define the model's default state.

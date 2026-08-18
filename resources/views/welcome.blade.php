@@ -2,18 +2,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Targets</title>
+    <title>Home | Agents</title>
 
     @vite('resources/css/app.css')
 </head>
 <body class="text-center px-8 py-12">
     <div class="page-shell">
     <section class="hero">
-        <h1>Welcome to TargetWeb</h1>
+        <h1>Welcome to AgentsWeb</h1>
         <p class="text-center">Keep up with yourselves.</p>
         
         @auth
-        <a href="/targets" class="btn-primary mt-6">Find Targets</a>
+        <a href="/agents" class="btn-primary mt-6">Find Agents</a>
         @endauth
 
         @guest

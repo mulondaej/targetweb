@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Target;
+use App\Models\Agent;
 
-class TargetSeeder extends Seeder
+class AgentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class TargetSeeder extends Seeder
     public function run(): void
     {
         //
-        Target::factory()->count(25)->create();
+        Agent::factory()->count(25)->create();
     }
 }

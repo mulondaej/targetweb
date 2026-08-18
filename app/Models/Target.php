@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Target extends Model
+class Agent extends Model
 {
-    /** @use HasFactory<\Database\Factories\TargetFactory> */
+    /** @use HasFactory<\Database\Factories\AgentFactory> */
     use HasFactory;
 
     protected $fillable = ['name', 'skill', 'bio', 'branch_id'];
