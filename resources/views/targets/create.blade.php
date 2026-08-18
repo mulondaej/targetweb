@@ -23,16 +23,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="branch_id" class="form-label">Branch</label>
-                    <select class="form-control @error('branch_id') is-invalid @enderror" id="branch_id" name="branch_id" required>
-                        <option value="" disabled selected>Select a branch</option>
-                        @foreach ($branches as $branch)
-                            <option value="{{ $branch->id }}">
-                                {{ $branch->name}}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('branch_id')
+                    <label for="branch_name" class="form-label">Branch Name</label>
+                    <input type="text" class="form-control @error('branch_name') is-invalid @enderror" id="branch_name" name="branch_name" value="{{ old('branch_name') }}" placeholder="e.g. Frontend / Backend / Design" required>
+                    @error('branch_name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

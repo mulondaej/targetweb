@@ -33,10 +33,23 @@ class TargetController extends Controller
             'name' => 'required|string|max:255',
             'skill' => 'required|integer|min:10|max:100',
             'bio' => 'required|string|min:20|max:1000',
-            'branch_id' => 'required|exists:branches,id',
+            'branch_name' => 'required|string|max:255',
         ]);
 
-        Target::create($validated);
+        $branch = Branch::firstOrCreate(
+            ['name' => trim($validated['branch_name'])],
+            [
+                'description' => 'Created from target form',
+                'location' => 'Not specified',
+            ]
+        );
+
+        Target::create([
+            'name' => $validated['name'],
+            'skill' => $validated['skill'],
+            'bio' => $validated['bio'],
+            'branch_id' => $branch->id,
+        ]);
 
         return redirect()->route('targets.index')->with('success', 'Target is created');
     }
