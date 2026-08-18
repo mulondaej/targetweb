@@ -12,8 +12,8 @@ class Branch extends Model
 
     protected $fillable = ['name', 'description', 'location'];
 
-    public function agents()
+    public function targets()
     {
-        return $this->hasMany(Agent::class);
+        return $this->hasMany(Target::class);
     }
 }

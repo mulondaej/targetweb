@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             BranchSeeder::class,
-            agentseeder::class,
+            TargetSeeder::class,
         ]);
     }
 }

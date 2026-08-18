@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AgentController;
+use App\Http\Controllers\TargetController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,21 +19,17 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
     Route::post('/login', 'login')->name('login');
 });
 
-Route::middleware('auth')->controller(AgentController::class)->group(function () {
-    Route:: get('/agents', 'index')->name('agents.index');
-
-    Route::get('/agents/create', 'create')->name('agents.create');
-
-    Route::get('/agents/{Agent}', 'show')->name('agents.show');
-
-    Route::post('/agents/', 'store')->name('agents.store');
-
-    Route::delete('/agents/{Agent}', 'destroy')->name('agents.destroy');
+Route::middleware('auth')->controller(TargetController::class)->group(function () {
+    Route::get('/targets', 'index')->name('targets.index');
+    Route::get('/targets/create', 'create')->name('targets.create');
+    Route::get('/targets/{target}', 'show')->name('targets.show');
+    Route::post('/targets', 'store')->name('targets.store');
+    Route::delete('/targets/{target}', 'destroy')->name('targets.destroy');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('agents.index');
+        return view('targets.index');
     })->name('dashboard');
 });
 

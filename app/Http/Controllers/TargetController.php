@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agent;
 use App\Models\Branch;
+use App\Models\Target;
 use Illuminate\Http\Request;
 
-class AgentController extends Controller
+class TargetController extends Controller
 {
-    //
     public function index()
     {
-        $agents = Agent::with('branch')->orderBy('created_at', 'desc')->paginate(13);
-        return view('agents.index', ["agents" => $agents]);
+        $targets = Target::with('branch')->orderBy('created_at', 'desc')->paginate(13);
+
+        return view('targets.index', ['targets' => $targets]);
     }
 
-    public function show(Agent $agent)
+    public function show(Target $target)
     {
-        $agent->load('branch');
-        return view('agents.show', ["Agent" => $agent]);
+        $target->load('branch');
+
+        return view('targets.show', ['target' => $target]);
     }
 
     public function create()
     {
         $branches = Branch::all();
-        return view('agents.create', ["branches" => $branches]);
+
+        return view('targets.create', ['branches' => $branches]);
     }
 
     public function store(Request $request)
@@ -39,26 +41,26 @@ class AgentController extends Controller
         $branch = Branch::firstOrCreate(
             ['name' => trim($validated['branch_name'])],
             [
-                'description' => 'Created from Agent form',
+                'description' => 'Created from target form',
                 'location' => 'Not specified',
             ]
         );
 
-        Agent::create([
+        Target::create([
             'name' => $validated['name'],
             'skill' => $validated['skill'],
             'bio' => $validated['bio'],
             'branch_id' => $branch->id,
         ]);
 
-        return redirect()->route('agents.index')->with('success', 'Agent is created');
+        return redirect()->route('targets.index')->with('success', 'Target is created');
     }
 
-    public function destroy(Agent $agent)
+    public function destroy(Target $target)
     {
-        $agent->delete();
+        $target->delete();
 
-        return redirect()->route('agents.index')->with('success', 'Agent is deleted');
+        return redirect()->route('targets.index')->with('success', 'Target is deleted');
     }
 }
 

@@ -31,7 +31,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('agents.index')->with('success', 'Thank you for joining!');
+        return redirect()->route('targets.index')->with('success', 'Thank you for joining!');
     }
     public function login(Request $request)
     {
@@ -43,7 +43,7 @@ class AuthController extends Controller
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
 
-            return redirect()->route('agents.index')->with('success', 'Welcome back!');
+            return redirect()->route('targets.index')->with('success', 'Welcome back!');
         }
 
         throw ValidationException::withMessages([

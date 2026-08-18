@@ -270,17 +270,14 @@ main.container {
     color: var(--white);
 }
 
-.Agent-grid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px; */
+.target-grid {
     display: inline-block;
     margin: 10px;
     justify-content: space-between;
     width: 100%;
 }
 
-.Agent-card {
+.target-card {
     position: relative;
     overflow: hidden;
     padding: 24px 20px;
@@ -294,32 +291,31 @@ main.container {
     justify-content: space-between;
 }
 
-.Agent-card::before {
+.target-card::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), transparent 52%);
     opacity: 0;
     transition: opacity 0.2s ease;
-    
 }
 
-.Agent-card:hover {
+.target-card:hover {
     transform: translateY(-4px);
     border-color: rgba(139, 92, 246, 0.85);
     box-shadow: 0 18px 36px rgba(124, 58, 237, 0.2);
 }
 
-.Agent-card:hover::before {
+.target-card:hover::before {
     opacity: 1;
 }
 
-.Agent-card > * {
+.target-card > * {
     position: relative;
     z-index: 1;
 }
 
-.Agent-name {
+.target-name {
     margin-bottom: 10px;
     font-size: 1.10rem;
     color: var(--white);
@@ -376,8 +372,8 @@ main.container {
     margin: 0 auto;
 }
 
-.AgentDetails,
-.branchDetails {
+.target-details,
+.branch-details {
     background: rgba(17, 24, 39, 0.9);
     border: 1px solid rgba(148, 163, 184, 0.2);
     border-radius: 20px;
@@ -385,29 +381,29 @@ main.container {
     box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
 }
 
-.AgentDetails h2,
-.branchDetails h2 {
+.target-details h2,
+.branch-details h2 {
     margin: 0 0 18px;
     color: #f8fafc;
     font-size: 1.8rem;
     letter-spacing: -0.04em;
 }
 
-.AgentDetails p,
-.branchDetails p,
-.branchDetails h3 {
+.target-details p,
+.branch-details p,
+.branch-details h3 {
     margin: 0 0 12px;
     color: #dbe4f0;
     line-height: 1.7;
 }
 
-.branchDetails h3 {
+.branch-details h3 {
     font-size: 1.2rem;
     color: #f8fafc;
 }
 
-.AgentDetails strong,
-.branchDetails strong {
+.target-details strong,
+.branch-details strong {
     color: #a78bfa;
 }
 

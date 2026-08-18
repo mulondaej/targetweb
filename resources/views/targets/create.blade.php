@@ -1,9 +1,9 @@
 <x-layout>
     <div class="container">
         <div class="create-form">
-            <h1>Create Agent</h1>
+            <h1>Create Target</h1>
 
-            <form action="{{ route('agents.store') }}" method="POST">
+            <form action="{{ route('targets.store') }}" method="POST">
                 @csrf
 
                 <div class="form-group">
@@ -40,7 +40,7 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <a href="{{ route('agents.index') }}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{ route('targets.index') }}" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>
