@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('targets', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->integer('skill');
-            $table->text('bio');
-            $table->foreignId('branch_id')->constrained()->onDelete('cascade');
-        });
+        if (!Schema::hasTable('targets')) {
+            Schema::create('targets', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+                $table->string('name');
+                $table->integer('skill');
+                $table->text('bio');
+                $table->foreignId('branch_id')->constrained()->onDelete('cascade');
+            });
+        }
     }
 
     /**
