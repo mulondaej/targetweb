@@ -11,9 +11,15 @@
     <section class="hero">
         <h1>Welcome to TargetWeb</h1>
         <p class="text-center">Keep up with yourselves.</p>
-        {{-- <a href="/targets" class="btn-primary mt-6">Find Targets</a> --}}
+        
+        @auth
+        <a href="/targets" class="btn-primary mt-6">Find Targets</a>
+        @endauth
+
+        @guest
         <a href="{{ route('register') }}" class="btn-primary mt-6">Register</a>
         <a href="{{ route('login') }}" class="btn-primary mt-6">Login</a>
+        @endguest
     </section>
 
 </div>
